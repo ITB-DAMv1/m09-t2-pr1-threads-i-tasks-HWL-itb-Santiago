@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "T1. PR2. Threads i Tasks/1.0.0": {
+        "runtime": {
+          "T1. PR2. Threads i Tasks.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "T1. PR2. Threads i Tasks/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
