@@ -1,0 +1,15 @@
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\bin\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.exe
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\bin\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.deps.json
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\bin\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.runtimeconfig.json
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\bin\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.dll
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\bin\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.pdb
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.AssemblyInfoInputs.cache
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.AssemblyInfo.cs
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.csproj.CoreCompileInputs.cache
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.sourcelink.json
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.dll
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\refint\T1. PR2. Threads i Tasks - Asteroid.dll
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.pdb
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\T1. PR2. Threads i Tasks - Asteroid.genruntimeconfig.cache
+C:\Users\cde\Desktop\Santiago\Threads\philosofos\T1. PR2. Threads i Tasks - Asteroid\T1. PR2. Threads i Tasks - Asteroid\obj\Debug\net8.0\ref\T1. PR2. Threads i Tasks - Asteroid.dll

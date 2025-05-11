@@ -1,11 +1,18 @@
-# Dining Philosophers Problem
+# Proyectos de Concurrencia: Filósofos Comensales y Juego de Asteroides
 
-## Descripción del Problema
+## Descripción General
+Este repositorio contiene dos proyectos que demuestran diferentes aspectos de la programación concurrente en C#:
+1. El problema clásico de los filósofos comensales
+2. Un juego de Asteroides con programación concurrente
+
+## 1. Problema de los Filósofos Comensales
+
+### Descripción del Problema
 El problema de los filósofos comensales es un clásico problema de sincronización y concurrencia en sistemas operativos. En este problema, cinco filósofos se sientan alrededor de una mesa circular con un plato de espagueti y cinco palillos. Los filósofos alternan entre pensar y comer. Para comer, un filósofo necesita dos palillos (el de su izquierda y el de su derecha). El desafío es diseñar un algoritmo que permita a los filósofos comer sin que se produzcan deadlocks o inanición.
 
-## Estrategia de Implementación
+### Estrategia de Implementación
 
-### Diseño Orientado a Objetos
+#### Diseño Orientado a Objetos
 La solución implementada utiliza un enfoque orientado a objetos para una mejor organización y mantenimiento del código:
 
 1. **Clase Philosopher**:
@@ -52,62 +59,84 @@ Para evitar deadlocks, implementamos la siguiente estrategia:
    - Implementamos operaciones atómicas para tomar y soltar palillos
    - Evitamos condiciones de carrera en la escritura por consola
 
-3. **Manejo de Estado**:
-   - Los palillos mantienen su estado de forma thread-safe
-   - Las operaciones de lectura/escritura están protegidas
-   - Implementamos verificaciones de estado seguras
+## 2. Juego de Asteroides
 
-## Documentación Técnica
+### Descripción
+Este proyecto implementa un juego clásico de Asteroides utilizando programación concurrente en C#. El juego demuestra el uso efectivo de threads y tasks para manejar diferentes aspectos del juego como el movimiento, la renderización y la entrada del usuario.
+
+### Características Principales
+- Sistema de doble buffer para renderizado suave
+- Movimiento fluido de la nave y asteroides
+- Sistema de colisiones en tiempo real
+- Aumento progresivo de dificultad
+- Pantallas de inicio y game over
+- Gestión eficiente de recursos
 
 ### Estructura del Proyecto
-```
-├── Program.cs              # Punto de entrada y configuración
-├── Models/
-│   ├── Philosopher.cs     # Implementación de filósofos
-│   └── Stick.cs           # Implementación de palillos
-└── README.md              # Este archivo
-```
 
-### Configuración
-- Tiempo de pensamiento: 0.5 - 2.0 segundos
-- Tiempo de comida: 0.5 - 1.0 segundos
-- Tiempo máximo de espera: 15 segundos
-- Tiempo entre intentos: 1 segundo
+#### Clases Principales
 
-### Referencias Adicionales
+##### Game
+- Clase principal que gestiona el estado del juego
+- Implementa el patrón Singleton
+- Maneja el bucle principal del juego
+- Coordina las tareas de dibujo y movimiento
+- Gestiona las transiciones entre estados (inicio, juego, game over)
 
-#### 1 Libros
-- Silberschatz, A., Galvin, P. B., i Gagne, G. (2018). Operating System Concepts. (10th ed.). Wiley.
-- Tanenbaum, A. S. i Bos, H. (2014). Modern Operating Systems. (4th ed.). Pearson.
-- Lea, D. (1999). Concurrent Programming in Java. (2nd ed.). Addison-Wesley Professional.
+##### Ship
+- Representa la nave del jugador
+- Maneja el movimiento horizontal
+- Detecta colisiones con asteroides
+- Implementa el sistema de respawn
 
-#### 2 Artículos Académicos
-- Dijkstra, E. W. (1965). The Dining Philosophers Problem. EWD-310. Technological University Eindhoven.
-- Chandy, K. M. i Misra, J. (1984). The Drinking Philosophers Problem. ACM Transactions on Programming Languages and Systems, 6(4), 632-646.
-- Lehmann, D. i Rabin, M. O. (1981). A New Solution to the Dining Philosophers Problem. Information Processing Letters, 12(5), 227-229.
+##### Asteroid
+- Representa los asteroides enemigos
+- Sistema de movimiento diagonal
+- Sistema de rastro visual
+- Respawn automático al salir de la pantalla
 
-#### 3 Recursos Online
-- Wikipedia contributors. (2024, 15 de març). Dining philosophers problem. Wikipedia. Recuperat el 15 de març 2024 de https://en.wikipedia.org/wiki/Dining_philosophers_problem
-- Microsoft. (2024, 15 de març). Threading in C# and .NET. Microsoft Docs. Recuperat el 15 de març 2024 de https://docs.microsoft.com/en-us/dotnet/standard/threading/
-- Oracle. (2024, 15 de març). Lesson: Concurrency. The Java™ Tutorials. Recuperat el 15 de març 2024 de https://docs.oracle.com/javase/tutorial/essential/concurrency/
+##### GameBuffer
+- Implementa el sistema de doble buffer
+- Gestiona la renderización en consola
+- Optimiza el rendimiento visual
 
-## Ejecución
-1. Compilar el proyecto
-2. Ejecutar el programa
-3. Observar la simulación en tiempo real
-4. Usar Ctrl+C para detener la simulación
+##### InputSystem
+- Maneja la entrada del usuario
+- Implementa el patrón Singleton
+- Procesa las teclas de forma asíncrona
 
-## Notas de Implementación
-- La solución prioriza la prevención de deadlocks sobre la eficiencia
-- Se implementa un sistema de timeout para evitar inanición
-- La visualización en consola está optimizada para mostrar el estado de cada filósofo
-- Se mantiene un registro de comidas y fallos para análisis 
+### Patrones de Diseño Utilizados
+
+#### Singleton
+- Game
+- GameBuffer
+- InputSystem
+- CollisionSystem
+
+#### Observer
+- Sistema de detección de colisiones
+- Notificación de cambios de estado
+
+#### State
+- Gestión de estados del juego (inicio, juego, game over)
+
+### Concurrencia
+
+#### Tasks
+- Task de dibujo (50ms)
+- Task de movimiento (20ms)
+- Task de entrada de usuario
+
+#### Sincronización
+- Locks para acceso a recursos compartidos
+- Control de concurrencia en el buffer de juego
+- Sincronización de estados
 
 ## Desarrollo con Asistencia de IA
 
-Durante el desarrollo de este proyecto, utilicé una IA para resolver dudas y mejorar el código. Aquí están algunas de las interacciones más relevantes:
+### Filósofos Comensales
 
-### 1. Mejora de la Sincronización
+#### 1. Mejora de la Sincronización
 **Pregunta**: "¿Cómo puedo evitar que los filósofos se bloqueen entre sí cuando intentan tomar los palillos?"
 
 **Respuesta de la IA**:
@@ -120,7 +149,7 @@ Para evitar deadlocks, implementa estas estrategias:
 
 **Resultado**: Implementé el orden de adquisición de recursos y el sistema de timeout, lo que resolvió los problemas de deadlock.
 
-### 2. Optimización de la Generación de Números Aleatorios
+#### 2. Optimización de la Generación de Números Aleatorios
 **Pregunta**: "¿Por qué mis filósofos están pensando y comiendo exactamente el mismo tiempo?"
 
 **Respuesta de la IA**:
@@ -136,132 +165,75 @@ Esto evita colisiones de semilla entre hilos.
 
 **Resultado**: La implementación de ThreadLocal<Random> resolvió el problema de la generación de números aleatorios.
 
-### 3. Mejora de la Visualización
-**Pregunta**: "¿Cómo puedo hacer que la salida en consola sea más clara y organizada?"
+### Juego de Asteroides
+
+#### 1. Sistema de Doble Buffer
+**Pregunta**: "¿Cómo puedo implementar un sistema de doble buffer para evitar el parpadeo en la consola?"
 
 **Respuesta de la IA**:
 ```
-Para mejorar la visualización, implementa este código en Program.cs:
-
-```csharp
-// Configuración de la consola
-Console.Title = "Dining Philosophers Simulation";
-Console.Clear();
-Console.WindowHeight = 40;
-Console.BufferHeight = 40;
-
-// Dibujar el encabezado
-Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════╗");
-Console.WriteLine("║                        DINING PHILOSOPHERS SIMULATION                      ║");
-Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════╝");
-
-// Mostrar configuración
-Console.WriteLine("\nConfiguración:");
-Console.WriteLine($"  • Tiempo de pensamiento: {MIN_THINK_TIME/1000.0} - {MAX_THINK_TIME/1000.0} segundos");
-Console.WriteLine($"  • Tiempo de comida: {MIN_EAT_TIME/1000.0} - {MAX_EAT_TIME/1000.0} segundos");
-Console.WriteLine($"  • Tiempo máximo de espera: {STARVING_TIME/1000.0} segundos");
-
-// Mostrar controles
-Console.WriteLine("\nControles:");
-Console.WriteLine("  • Presiona 'P' para pausar/reanudar");
-Console.WriteLine("  • Presiona 'Q' para salir");
-Console.WriteLine("  • Ctrl+C para detener la simulación");
-
-// Preparar sección de filósofos
-Console.WriteLine("\nEstado de los Filósofos:");
-Console.WriteLine("╔════════════════════════════════════════════════════════════════════════════╗");
-Console.WriteLine("║ ID │ Estado      │ Tiempo    │ Comidas │ Fallos │ Palillos                ║");
-Console.WriteLine("╟────┼─────────────┼───────────┼─────────┼────────┼─────────────────────────╢");
-
-// Dejar espacio para los filósofos
-for (int i = 0; i < NUM_PHILOSOPHERS; i++)
-{
-    Console.WriteLine("║    │             │           │         │        │                         ║");
-}
-
-Console.WriteLine("╚════════════════════════════════════════════════════════════════════════════╝");
+Para implementar un sistema de doble buffer efectivo, te recomiendo:
+- Crear una clase `GameBuffer` que mantenga dos buffers
+- Usar un buffer para dibujar y otro para mostrar
+- Intercambiar los buffers después de cada frame
+- Implementar el patrón Singleton para garantizar una única instancia
+- Sincronizar el acceso con locks para evitar problemas de concurrencia
 ```
 
-Y en Philosopher.cs, implementa este método para actualizar el estado:
+**Resultado**: Implementé el sistema de doble buffer que eliminó el parpadeo y mejoró significativamente la fluidez visual.
 
-```csharp
-private void UpdateStatusLine()
-{
-    lock (consoleLock)
-    {
-        Console.SetCursorPosition(0, 12 + Id);
-        Console.Write($"║ {Id,2} │ ");
-        
-        // Estado con color
-        Console.ForegroundColor = State switch
-        {
-            PhilosopherState.Thinking => ConsoleColor.Blue,
-            PhilosopherState.Eating => ConsoleColor.Green,
-            PhilosopherState.Waiting => ConsoleColor.Yellow,
-            _ => ConsoleColor.White
-        };
-        Console.Write($"{State,-11}");
-        Console.ResetColor();
-        
-        // Resto de la información
-        Console.Write($" │ {TimeInState/1000,7:F1}s │ {MealsEaten,7} │ {FailedAttempts,6} │ ");
-        
-        // Mostrar palillos con colores
-        if (LeftStick != null)
-        {
-            Console.ForegroundColor = LeftStick.IsUsedBy(Id) ? ConsoleColor.Green : ConsoleColor.Red;
-            Console.Write("L");
-            Console.ResetColor();
-        }
-        if (RightStick != null)
-        {
-            Console.ForegroundColor = RightStick.IsUsedBy(Id) ? ConsoleColor.Green : ConsoleColor.Red;
-            Console.Write("R");
-            Console.ResetColor();
-        }
-        Console.WriteLine("                         ║");
-    }
-}
-```
-
-Esto creará una interfaz con:
-1. Un encabezado claro con el título
-2. Sección de configuración con los tiempos
-3. Sección de controles
-4. Tabla de filósofos con:
-   - ID
-   - Estado (con colores)
-   - Tiempo en el estado actual
-   - Número de comidas
-   - Intentos fallidos
-   - Estado de los palillos (verde = en uso, rojo = libre)
-
-**Resultado**: La implementación de este código resultó en una interfaz mucho más clara y profesional, donde:
-- Cada filósofo tiene su propia línea fija en la consola
-- Los estados se muestran con colores diferentes (azul = pensando, verde = comiendo, amarillo = esperando)
-- Los palillos se muestran con colores (verde = en uso, rojo = libre)
-- La información está organizada en una tabla con bordes
-- No hay solapamiento de información entre filósofos
-
-### 4. Manejo de Recursos
-**Pregunta**: "¿Cómo puedo hacer que el código sea más seguro en términos de concurrencia?"
+#### 2. Manejo de Entrada
+**Pregunta**: "¿Cuál es la mejor manera de manejar la entrada del usuario sin bloquear el bucle principal?"
 
 **Respuesta de la IA**:
 ```
-Implementa estas mejoras:
-1. Haz las propiedades de Stick privadas y usa métodos para acceder
-2. Usa lock consistentemente para todas las operaciones de lectura/escritura
-3. Implementa verificaciones de estado seguras
-4. Añade un método IsUsedBy para verificar el uso de palillos
+La mejor solución es implementar un sistema asíncrono de entrada:
+- Crear una clase `InputSystem` con un patrón Singleton
+- Usar una cola para almacenar las teclas presionadas
+- Implementar un método `TryGetInput` para procesar la entrada
+- Manejar la entrada en una task separada
+- Sincronizar el acceso a la cola de entrada
 ```
 
-**Resultado**: El código es ahora más robusto y seguro en términos de concurrencia.
+**Resultado**: El sistema de entrada asíncrono mejoró significativamente la responsividad del juego.
 
-### Lecciones Aprendidas
-1. La importancia de la sincronización en programas concurrentes
-2. Cómo evitar deadlocks mediante el orden de adquisición de recursos
-3. La necesidad de manejar correctamente la generación de números aleatorios en hilos
-4. La importancia de una buena visualización para el debugging
-5. Cómo usar locks efectivamente para proteger recursos compartidos
+#### 3. Sistema de Colisiones
+**Pregunta**: "¿Cómo puedo implementar un sistema de colisiones eficiente?"
 
-Esta interacción con la IA me ayudó a entender mejor los conceptos de concurrencia y a implementar una solución más robusta y eficiente. 
+**Respuesta de la IA**:
+```
+Para un sistema de colisiones eficiente:
+- Implementar el patrón Observer para notificar colisiones
+- Verificar colisiones solo cuando sea necesario
+- Usar una copia de la lista de asteroides para evitar modificaciones durante la iteración
+- Proporcionar feedback visual inmediato
+- Manejar las colisiones de forma asíncrona
+```
+
+**Resultado**: El sistema de colisiones implementado es eficiente y proporciona feedback visual inmediato.
+
+## Bibliografía
+
+### 1. Libros
+- Silberschatz, A., Galvin, P. B., i Gagne, G. (2018). Operating System Concepts. (10th ed.). Wiley.
+- Tanenbaum, A. S. i Bos, H. (2014). Modern Operating Systems. (4th ed.). Pearson.
+- Freeman, E., & Robson, E. (2004). "Head First Design Patterns". O'Reilly Media.
+- Albahari, J., & Albahari, B. (2020). "C# 8.0 in a Nutshell". O'Reilly Media.
+- Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). "Design Patterns: Elements of Reusable Object-Oriented Software". Addison-Wesley.
+
+### 2. Artículos Académicos
+- Dijkstra, E. W. (1965). The Dining Philosophers Problem. EWD-310. Technological University Eindhoven.
+- Chandy, K. M. i Misra, J. (1984). The Drinking Philosophers Problem. ACM Transactions on Programming Languages and Systems, 6(4), 632-646.
+- Lehmann, D. i Rabin, M. O. (1981). A New Solution to the Dining Philosophers Problem. Information Processing Letters, 12(5), 227-229.
+
+### 3. Recursos Online
+- Microsoft. (2023). "Task-based asynchronous programming". Microsoft Learn.
+  https://learn.microsoft.com/en-us/dotnet/standard/parallel-programming/task-based-asynchronous-programming
+- Microsoft. (2023). "Threading in C#". Microsoft Learn.
+  https://learn.microsoft.com/en-us/dotnet/standard/threading/
+- Wikipedia contributors. (2024). Dining philosophers problem. Wikipedia.
+  https://en.wikipedia.org/wiki/Dining_philosophers_problem
+
+## Requisitos Técnicos
+- .NET 6.0 o superior
+- Consola de Windows
